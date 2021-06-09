@@ -5,9 +5,9 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 import pandas, xlwt, pickle
 
-wb = xlwt.Workbook() 
-path = r'C:\Users\Vicky Kumar\Desktop\Program Output\Data\Gform.csv'
-sheet1 = wb.add_sheet('G-Form') 
+wb = xlwt.Workbook()
+path = 'Gform.csv'
+sheet1 = wb.add_sheet('G-Form')
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
@@ -15,16 +15,16 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 # The ID and range of a sample spreadsheet.
 # link = input('\nEnter or PASTE... Google SpreadSheet link : ')
 # link = 'https://docs.google.com/spreadsheets/d/15hXurtpkhacOSmFcb_Jt0ojl_j2D2YyjO3tv7AAFtxs/edit#gid=768182159'
-link = 'https://docs.google.com/spreadsheets/d/1DW3OHq9u3mDIUKsngMLQkU-47-QKAWrYylpWZ2YFt8M/edit#gid=66752240' 
+link = 'https://docs.google.com/spreadsheets/d/1DW3OHq9u3mDIUKsngMLQkU-47-QKAWrYylpWZ2YFt8M/edit#gid=66752240'
 SAMPLE_SPREADSHEET_ID = link.split('/')[5]
 
 # SAMPLE_SPREADSHEET_ID = '1DW3OHq9u3mDIUKsngMLQkU-47-QKAWrYylpWZ2YFt8M'
 # SAMPLE_SPREADSHEET_ID = '1FgZbO7R0ZKFKsmxml-cUosHcqAn-p5W-dxRpiTpRVhw'
-# SAMPLE_SPREADSHEET_ID = '1FAIpQLScF17GULOP1OxI9MHbn0nsIre71hIeCKR8mLyvmwhMXLiyTuA'
+SAMPLE_SPREADSHEET_ID = '1FAIpQLScF17GULOP1OxI9MHbn0nsIre71hIeCKR8mLyvmwhMXLiyTuA'
 SAMPLE_RANGE_NAME = 'A:ZZ'
 
-credentials = r'C:\Users\Vicky Kumar\Desktop\Program Output\Data\credentials.json'
-credentials_xlsx = r"C:\Users\Vicky Kumar\Desktop\Program Output\Data\xlsx.xlsx"
+credentials = 'credentials.json'
+credentials_xlsx = "xlsx.xlsx"
 
 def main():
     """Shows basic usage of the Sheets API.
@@ -63,11 +63,11 @@ def main():
         for r, row in enumerate(values):
             for c, column in enumerate(row):
                 sheet1.write(int(r), int(c), column)
-            
+
 if __name__ == '__main__':
     main()
-    wb.save(path) 
+    wb.save(path)
     os.startfile(path)
-    
+
 #     pandas.read_json(credentials).to_excel(credentials_xlsx)
 #     os.startfile(credentials_xlsx)
